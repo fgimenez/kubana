@@ -1,0 +1,27 @@
+{
+    "_comment": "Build with `packer build k8s_base.json`",
+
+    "variables": {
+        "source_image_name": "{{env `K8S_SOURCE_IMAGE`}}",
+        "ssh_username": "ubuntu"
+    },
+
+    "builders": [
+        {
+            "type": "openstack",
+            "image_name": "k8s_base",
+            "source_image_name": "{{user `source_image_name`}}",
+            "flavor": "4",
+            "ssh_username": "{{ user `ssh_username` }}",
+            "security_groups": ["ssh"]
+        }
+    ],
+    "provisioners": [
+        {
+            "scripts": [
+                "scripts/kubeadm.sh"
+            ],
+            "type": "shell"
+        }
+    ]
+}
