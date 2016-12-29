@@ -1,31 +1,33 @@
 variable "kubernetes_image" {
-    default = "ubuntu-xenial"
+  default = "k8s_base"
 }
 
-variable "project" {}
+variable "project" {
+  default = "kubestack"
+}
 
 variable "ssh_user" {
   default = "ubuntu"
 }
 
 variable "compute_count" {
-    default = 2
+  default = 2
 }
 
 variable "cluster_name" {
-    default = "testing"
+  default = "okubestack-testing"
 }
 
 variable "floatingip_pool" {
-    default = "external"
+  default = "external"
 }
 
 variable "kubernetes_flavor" {
-    default = "m1.medium"
+  default = "m1.medium"
 }
 
 variable "kubernetes_token" {
-    default = "5aa3f9.c7acfa51e41f1f7d"
+  default = "5aa3f9.c7acfa51e41f1f7d"
 }
 
 variable "username" {

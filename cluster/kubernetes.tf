@@ -58,7 +58,3 @@ resource "openstack_compute_instance_v2" "compute" {
     "openstack_compute_instance_v2.controller"
   ]
 }
-
-output "kubernetes-controller" {
-  value = "$ ssh -A ${var.ssh_user}@${openstack_compute_floatingip_v2.controller.0.address}"
-}
