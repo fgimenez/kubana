@@ -20,4 +20,5 @@ COPY files/resource_openstack_compute_secgroup_v2.go $TERRAFORM_SRC_DIR/builtin/
 RUN go-wrapper download
 RUN go-wrapper install
 
-ENTRYPOINT ["terraform"]
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

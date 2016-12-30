@@ -15,7 +15,7 @@ variable "compute_count" {
 }
 
 variable "cluster_name" {
-  default = "okubestack-testing"
+  default = "kubestack-testing"
 }
 
 variable "floatingip_pool" {
@@ -48,12 +48,12 @@ variable "auth_url" {
 
 variable "public_key_path" {
   description = "The path of the ssh pub key"
-  default = "~/.ssh/id_rsa.pub"
+  default = "/app/dummy_keypair/cloud.key.pub"
 }
 
 variable "private_key_path" {
   description = "The path of the ssh priv key"
-  default = "~/.ssh/id_rsa"
+  default = "/app/dummy_keypair/cloud.key"
 }
 
 variable "whitelist_network" {
