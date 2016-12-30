@@ -18,6 +18,7 @@ patched to play well with old openstack api responses. You should create a
 
     floatingip_pool = "my_floating_ip_pool"
     compute_count = 6
+    whitelist_network = "aa.bb.cc.dd/ee"
 
 With that in place you can spin up the cluster with:
 
@@ -32,7 +33,7 @@ With that in place you can spin up the cluster with:
 The output from the execution let's you know how to access the controller node,
 something like:
 
-    kubernetes-controller = $ ssh -i ./dummy_keypair/cloud.key ubuntu@162.213.35.181
+    kubernetes-controller = $ ssh -i ./dummy_keypair/cloud.key ubuntu@xx.xx.xx.xx
 
 From there you can copy the `/etc/kubernetes/admin.conf` file to your host on `~/.kube/config`
 to access the cluster with the `kubectl` cli tool.

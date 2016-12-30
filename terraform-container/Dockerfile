@@ -1,4 +1,4 @@
-FROM golang:1.7
+FROM golang:1.7-alpine
 
 ENV TERRAFORM_SRC_DIR /go/src/github.com/hashicorp/terraform
 ENV TERRAFORM_VERSION 0.7.13
@@ -6,6 +6,9 @@ ENV TERRAFORM_TMP_DIR /tmp/terraform-$TERRAFORM_VERSION
 ENV TERRAFORM_DOWNLOAD_URL https://github.com/hashicorp/terraform/archive/v$TERRAFORM_VERSION.tar.gz
 
 RUN mkdir -p $TERRAFORM_SRC_DIR /tmp/terraform
+
+RUN apk add --update curl && \
+      rm -rf /var/cache/apk/*
 
 RUN curl -fsSL "$TERRAFORM_DOWNLOAD_URL" -o terraform.tar.gz \
     && tar -C /tmp -xzf terraform.tar.gz \
