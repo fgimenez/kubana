@@ -1,4 +1,4 @@
-kubana let's easily you deploy a kubernetes cluster over an openstack installation without neutron enabled (tested on the havana release). It is based on https://github.com/openstack/osops-tools-contrib. [terraform](https://www.terraform.io/) takes care of the infrastructure setup and [kubeadm](http://kubernetes.io/docs/getting-started-guides/kubeadm/) of the installation of the k8s services.
+kubana let's you deploy easily a kubernetes cluster over an openstack installation without neutron enabled (tested on the havana release). It is based on https://github.com/openstack/osops-tools-contrib. [terraform](https://www.terraform.io/) takes care of the infrastructure setup and [kubeadm](http://kubernetes.io/docs/getting-started-guides/kubeadm/) of the installation of the k8s services.
 
 First of all, a base image must be available on the openstack side to be used by the k8s nodes. Given the usual openstack access environment variables are present you can create it using [packer](https://www.packer.io/) from the `images` directory, executing:
 
