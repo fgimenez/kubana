@@ -4,7 +4,6 @@ cd /app || exit 1
 
 if [ -z "$1" ]; then
     cmd=apply
-    force=
 else
     cmd="$1"
     if [ "$1" = destroy ]; then
