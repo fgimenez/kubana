@@ -1,0 +1,31 @@
+---
+driver:
+    name: terraform
+
+provisioner:
+    name: terraform
+    apply_timeout: 1000
+    variable_files:
+        - ./kitchen.tfvars
+    variables:
+        username: <%=ENV['OS_USERNAME']%>
+        password: <%=ENV['OS_PASSWORD']%>
+        tenant: <%=ENV['OS_TENANT_NANE']%>
+        auth_url: <%=ENV['OS_AUTH_URL']%>
+transport:
+    name: ssh
+    username: ubuntu
+    ssh_key: ./dummy_keypair/cloud.key
+
+verifier:
+    name: terraform
+    format: doc
+    groups:
+        - name: controller
+          controls:
+              - apiserver_listening
+          hostnames: controller_public_ip
+platforms:
+    - name: ubuntu
+suites:
+    - name: default
