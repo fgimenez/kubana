@@ -5,9 +5,9 @@ control 'controller_kubectl_cmd' do
     its('exit_status') { should eq 0 }
   end
 
-  describe command('kubectl --kubeconfig /etc/kubernetes/admin.cong get nodes') do
+  describe command('kubectl --kubeconfig /etc/kubernetes/admin.conf get nodes') do
     its('stderr') { should eq '' }
     its('exit_status') { should eq 0 }
-    its('stdout') { should match %r{/Ready,master/} }
+    its('stdout') { should match %r{Ready,master} }
   end
 end
