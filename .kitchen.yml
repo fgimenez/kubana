@@ -23,7 +23,9 @@ verifier:
     groups:
         - name: controller
           controls:
-              - apiserver_listening
+              - controller_admin_cfg
+              - controller_kubectl_cmd
+              - controller_services
           hostnames: controller_public_ip
 platforms:
     - name: ubuntu
